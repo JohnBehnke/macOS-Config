@@ -1,2 +1,2 @@
 # EasyDevTools
-A small script that downloads a bunch of useful development tools for OS X for when you get a new Mac or a use a fresh install.
+A small script that downloads a bunch of useful development tools for OS X for when you get a new Mac or a use a fresh install. It uses bash to download the xcode command line tools, brew, valgrind, git, and then it creates a new folder on the Desktop that all of the other tools get downloaded to using cURL. Finally it opens up the App Store for those applications that can't be downlaod directly from the web. 
