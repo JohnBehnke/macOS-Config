@@ -26,14 +26,14 @@ cd "$dir"
 
 
 
-#Download Sublime Text 3, GitHub for Mac,f.lux, Dropbox, Java, and flash (ehk, nasty)
+#Download Sublime Text 3, GitHub for Mac,f.lux, Dropbox, Java, and flash (ehk, nasty), and a monokai theme for Terminal)
 
 urls=( http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203065.dmg
 	https://github-central.s3.amazonaws.com/mac/GitHub%20for%20Mac%20194.zip
 	https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip
 	https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%203.0.5.dmg 
 	http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg
-	http://aihdownload.adobe.com/bin/live/AdobeFlashPlayerInstaller_16_ltrosxd_aaa_aih.dmg
+	http://aihdownload.adobe.com/bin/live/AdobeFlashPlayerInstaller_16_ltrosxd_aaa_aih.dmg, https://github.com/stephenway/monokai.terminal/blob/master/Monokai.terminal
 	)
 
 #string to hold the curl command
