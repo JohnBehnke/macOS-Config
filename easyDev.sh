@@ -7,6 +7,10 @@ xcode-select --install
 #second, get brew, becuase that is the best ever of all time
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+
+#Get zsh...
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
 #next, get valgrind for some memory leak checking. Gets the head for the most current version
 #since they take forever to update to the newest OSX version
 brew install --HEAD valgrind
@@ -33,7 +37,7 @@ urls=( http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203065.dmg
 	https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip
 	https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%203.0.5.dmg 
 	http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg
-	http://aihdownload.adobe.com/bin/live/AdobeFlashPlayerInstaller_16_ltrosxd_aaa_aih.dmg, https://github.com/stephenway/monokai.terminal/blob/master/Monokai.terminal
+	http://aihdownload.adobe.com/bin/live/AdobeFlashPlayerInstaller_16_ltrosxd_aaa_aih.dmg
 	)
 
 #string to hold the curl command
