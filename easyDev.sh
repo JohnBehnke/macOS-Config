@@ -1,5 +1,10 @@
 #!/bin/sh
 
+
+
+
+#Disable GateKeeper. I'm assuming that you know how to NOT download a virus
+sudo spctl --master-disable
 #First, get the xcode dev tools, which includes gcc and other swag
 xcode-select --install
 
