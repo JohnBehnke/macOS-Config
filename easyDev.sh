@@ -43,6 +43,7 @@ urls=( http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203065.dmg
 	https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%203.0.5.dmg 
 	http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg
 	http://aihdownload.adobe.com/bin/live/AdobeFlashPlayerInstaller_16_ltrosxd_aaa_aih.dmg
+	https://s3.amazonaws.com/ublock/ublock-safari-0.9.4.0.safariextz
 	)
 
 #string to hold the curl command
