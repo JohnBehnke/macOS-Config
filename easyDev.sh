@@ -40,7 +40,7 @@ urls=( http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203065.dmg
 	https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip
 	https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%203.0.5.dmg 
 	http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg
-	https://s3.amazonaws.com/ublock/ublock-safari-0.9.4.0.safariextz,
+	https://s3.amazonaws.com/ublock/ublock-safari-0.9.4.0.safariextz
 	https://dl.google.com/dl/android/studio/install/1.2.2.0/android-studio-ide-141.1980579-mac.dmg
 	)
 
