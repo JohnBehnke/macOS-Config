@@ -47,6 +47,7 @@ then
 		http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg
 		https://s3.amazonaws.com/ublock/ublock-safari-0.9.4.0.safariextz
 		https://dl.google.com/dl/android/studio/install/1.2.2.0/android-studio-ide-141.1980579-mac.dmg
+		https://steamcdn-a.akamaihd.net/client/installer/steam.dmg
 		)
 
 	#string to hold the curl command
