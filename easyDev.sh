@@ -67,6 +67,15 @@ then
 	curl $masterURL
 
 	echo "Finished!!!"
+
+	echo "Adding blank spaces to dock"
+	for ((i = 0; i < 4; i++)); do
+		defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+	done
+	killall Dock
+
+	echo "All Finished! Enjoy your new setup! 🍻"
+	sleep 3.0
 	exit
 
 
