@@ -4,6 +4,6 @@ A small script that downloads a bunch of useful development tools for OS X for w
 #How to use
 All you have to do is run easyDev.sh as root.
 
-`sudo bash easyDev.sh`. 
+`sudo bash easyDev.sh`
 
 You can run it with out root, but you will probably (100% certainly) have to rerun it as root anyways for things like the xcode command line tools to install.
