@@ -73,14 +73,17 @@ then
 		defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 	done
 	killall Dock
-
-	echo "All Finished! Enjoy your new setup! 🍻"
+	
+	echo "Almost finished!🍻"
 	sleep 3.0
+	echo "Option for enabling TRIM support"
+	trimforce enable
 	exit
 
 
 else
 	echo "Well..... nevermind then :("
+		sleep 2.0
 	exit
 fi
 
