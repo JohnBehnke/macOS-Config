@@ -74,11 +74,10 @@ then
 	done
 	killall Dock
 	
-	echo "Almost finished!🍻"
+	echo "Finished! Ejnoy🍻"
 	sleep 3.0
-	echo "Option for enabling TRIM support"
-	trimforce enable
-	exit
+	
+	
 
 
 else
