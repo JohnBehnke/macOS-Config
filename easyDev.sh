@@ -23,11 +23,11 @@ then
 
 
 	#Disabled Valgrind for now since its not super necessary
-		# #next, get valgrind for some memory leak checking. Gets the head for the most current version
-		# #since they take forever to update to the newest OSX version
-		# brew install --HEAD valgrind
-		# #install git because git is awesome
-		# brew install git
+	#next, get valgrind for some memory leak checking. Gets the head for the most current version
+	#since they take forever to update to the newest OSX version
+	brew install  valgrind
+		#install git because git is awesome
+	brew install git
 
 
 
