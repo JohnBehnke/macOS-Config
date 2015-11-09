@@ -29,7 +29,7 @@ then
 		#install git because git is awesome
 	brew install git
 
-
+	sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO
 
 	echo "Making a temporary folder on the desktop to hold downloads"
 	dir="/Users/$USER/Desktop/Development Downloads"
