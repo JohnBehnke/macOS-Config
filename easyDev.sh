@@ -29,6 +29,8 @@ then
 		#install git because git is awesome
 	brew install git
 
+	brew install gcc
+
 	sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO
 
 	echo "Making a temporary folder on the desktop to hold downloads"
