@@ -7,35 +7,47 @@ if [[ $prompt =~ [yY](es)* ]]
 then
 	echo "Disable GateKeeper. I'm assuming that you know how to NOT download a virus"
 
-	spctl --master-disable
+	sudo spctl --master-disable
 
 	echo "Installing Xcode Command Line tools"
 	xcode-select --install
+	echo  "I'm gonna sleep for a bit (20 seconds) to make sure you have the development tools! 💤"
+	sleep 20.0
+	
+	echo "Automagically agree to the Xcode Agreement. This might sell your soul to Tim Cook."
+	sudo xcodebuild -license
 
-	echo "Automagically agree to the Xcode Agreement. This probs sells your soul to Tim Cook."
-	xcrun cc
-
-	echo "Get brew, becuae brew is life"
+	echo "Get brew, because brew is life"
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	echo "Get zsh and make it the default shell, becuase bash is for old people"
+	echo "Get zsh and make it the default shell, because bash is for old people"
 	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 
 
-	#Disabled Valgrind for now since its not super necessary
 	#next, get valgrind for some memory leak checking. Gets the head for the most current version
 	#since they take forever to update to the newest OSX version
 	brew install  valgrind
 		#install git because git is awesome
 	brew install git
 
+	read -p "Setting up git for GitHub integration. What's your name (from GitHub)? " userName
+	read -p "Cool. And the email? " userEmail
+
+	git config --global user.name $userName
+
+	git config --global user.email $userEmail
+
 	echo "Switching git tool to nano"
 	git config --global core.editor "nano"
 
+	git config --global user.name "YOUR NAME"
+
 	brew install gcc
 
-	sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO
+
+	#don't re-enable gatekeeper
+	sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO 
 
 	echo "Making a temporary folder on the desktop to hold downloads"
 	dir="/Users/$USER/Desktop/Development Downloads"
@@ -46,14 +58,14 @@ then
 
 	#Downloads
 
-	urls=(http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203065.dmg
-		https://github-central.s3.amazonaws.com/mac/GitHub%20for%20Mac%20194.zip
-		https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip
-		https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%203.0.5.dmg 
-		http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg
-		https://cloud.delosent.com/ublock-safari-0.9.5.0.safariextz
-		https://dl.google.com/dl/android/studio/install/1.2.2.0/android-studio-ide-141.1980579-mac.dmg
-		https://steamcdn-a.akamaihd.net/client/installer/steam.dmg
+	urls=('https://download.sublimetext.com/Sublime%20Text%20Build%203103.dmg'
+		'https://github-central.s3.amazonaws.com/mac/GitHub%20for%20Mac%20194.zip'
+		'https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip'
+		'http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg'
+		'https://cloud.delosent.com/ublock-safari-0.9.5.0.safariextz'
+		'https://dl.google.com/dl/android/studio/install/1.2.2.0/android-studio-ide-141.1980579-mac.dmg'
+		'https://steamcdn-a.akamaihd.net/client/installer/steam.dmg'
+		'https://dl-web.dropbox.com/installer?tag_token=ACxPn4OgFULj4yK26UyVFx_9LTJn4zm5SVGRpu0MuaBRgw&tag=DBPREAUTH%3A%3Asafari%3A%3AeJwNy8EKwjAMANBfGTmLdEm6NN4m4kFBERnqaQgWHIEN1vYg4r-764P3hWfJ7z5PFkfYVKAtu9ZKupwOtj_Ony7v7vbI52uZb7Gz7bpmL4pUe4RVBSmmNExjP7yWTERM1DRBhDh4RlQUp55wASdBWJUc_f4q3iCL%40META&build_no=3.14.7&plat=mac'
 		)
 
 	#string to hold the curl command
@@ -74,17 +86,19 @@ then
 
 	echo "Finished!!!"
 
-	echo "Adding blank spaces to dock"
-	for ((i = 0; i < 4; i++)); do
+	
 		defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-	done
-	killall Dock
-	
-	echo "Finished! Ejnoy🍻"
-	sleep 3.0
-	
+
+	defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock #remove dashboard, change to NO if you want it back
 	
 
+	
+	killall Dock
+
+	
+	echo "🍻🍻🍻🍻🍻Finished! Enjoy! 🍻🍻🍻🍻🍻"
+	sleep 3.0
+	
 
 else
 	echo "Well..... nevermind then :("
