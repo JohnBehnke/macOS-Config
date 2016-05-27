@@ -65,7 +65,7 @@ then
 		'https://cloud.delosent.com/ublock-safari-0.9.5.0.safariextz'
 		'https://dl.google.com/dl/android/studio/install/1.2.2.0/android-studio-ide-141.1980579-mac.dmg'
 		'https://steamcdn-a.akamaihd.net/client/installer/steam.dmg'
-		'https://dl-web.dropbox.com/installer?tag_token=ACxPn4OgFULj4yK26UyVFx_9LTJn4zm5SVGRpu0MuaBRgw&tag=DBPREAUTH%3A%3Asafari%3A%3AeJwNy8EKwjAMANBfGTmLdEm6NN4m4kFBERnqaQgWHIEN1vYg4r-764P3hWfJ7z5PFkfYVKAtu9ZKupwOtj_Ony7v7vbI52uZb7Gz7bpmL4pUe4RVBSmmNExjP7yWTERM1DRBhDh4RlQUp55wASdBWJUc_f4q3iCL%40META&build_no=3.14.7&plat=mac'
+		
 		)
 
 	#string to hold the curl command
