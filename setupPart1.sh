@@ -42,6 +42,8 @@ then
 	git config --global core.editor "nano"
 
 	git config --global user.name "YOUR NAME"
+	
+	git config --global merge.tool opendiff
 
 	brew install gcc
 
