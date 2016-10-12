@@ -14,8 +14,8 @@ then
 	echo  "I'm gonna sleep for a bit (20 seconds) to make sure you have the development tools! 💤"
 	sleep 20.0
 	
-	echo "Automagically agree to the Xcode Agreement. This might sell your soul to Tim Cook."
-	sudo xcodebuild -license
+	#echo "Automagically agree to the Xcode Agreement. This might sell your soul to Tim Cook."
+	#sudo xcodebuild -license
 
 	echo "Get brew, because brew is life"
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
