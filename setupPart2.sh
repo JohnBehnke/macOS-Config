@@ -1,18 +1,10 @@
 #!/bin/sh
 
-#Ensuring Sublime Text has been opened at least once so support files are generated
-echo "Opening Sublime Text"
-open -a Sublime\ Text
-sleep 1.0
-killall Sublime\ Text
-echo "Closing Sublime Text"
-
-
-
-echo "Downloading Package Control"
-curl -o /Users/$USER/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package https://packagecontrol.io/Package%20Control.sublime-package
-echo "Done!"
-
+ln -s /Users/john/Documents/Code/Personal/dotfiles/zsh/zshrc ~/.zshrc  
+ln -s /Users/john/Documents/Code/Personal/dotfiles/kwm/kwmrc ~/.kwm/kwmrc    
+ln -s /Users/john/Documents/Code/Personal/dotfiles/git/gitconfig ~/.gitconfig  
+ln -s /Users/john/Documents/Code/Personal/dotfiles/git/gitignore_global ~/.gitignore_global
+ln -sv "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
 
 

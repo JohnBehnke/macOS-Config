@@ -24,29 +24,17 @@ then
 	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 
-
-	#next, get valgrind for some memory leak checking. Gets the head for the most current version
-	#since they take forever to update to the newest OSX version
-	brew install  valgrind
 		#install git because git is awesome
 	brew install git
 
 	read -p "Setting up git for GitHub integration. What's your name (from GitHub)? " userName
 	read -p "Cool. And the email? " userEmail
 
-	git config --global user.name $userName
-
-	git config --global user.email $userEmail
-
-	echo "Switching git tool to nano"
-	git config --global core.editor "nano"
-
-	git config --global user.name "YOUR NAME"
-	
-	git config --global merge.tool opendiff
-
 	brew install gcc
 
+	brew install zsh-syntax-highlighting
+	brew install npm
+	brew install koekeishiya/kwm/kwm   
 
 	#don't re-enable gatekeeper
 	sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO 
@@ -61,7 +49,6 @@ then
 	#Downloads
 
 	urls=('https://download.sublimetext.com/Sublime%20Text%20Build%203103.dmg'
-		'https://github-central.s3.amazonaws.com/mac/GitHub%20for%20Mac%20194.zip'
 		'https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip'
 		'http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg'
 		'https://cloud.delosent.com/ublock-safari-0.9.5.0.safariextz'
