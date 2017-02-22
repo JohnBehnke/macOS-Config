@@ -14,8 +14,8 @@ then
 	echo  "I'm gonna sleep for a bit (20 seconds) to make sure you have the development tools! 💤"
 	sleep 20.0
 	
-	echo "Automagically agree to the Xcode Agreement. This might sell your soul to Tim Cook."
-	sudo xcodebuild -license
+	#echo "Automagically agree to the Xcode Agreement. This might sell your soul to Tim Cook."
+	#sudo xcodebuild -license
 
 	echo "Get brew, because brew is life"
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -27,8 +27,7 @@ then
 		#install git because git is awesome
 	brew install git
 
-	read -p "Setting up git for GitHub integration. What's your name (from GitHub)? " userName
-	read -p "Cool. And the email? " userEmail
+	
 
 	brew install gcc
 
@@ -52,8 +51,8 @@ then
 		'https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip'
 		'http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg'
 		'https://cloud.delosent.com/ublock-safari-0.9.5.0.safariextz'
-		'https://dl.google.com/dl/android/studio/install/1.2.2.0/android-studio-ide-141.1980579-mac.dmg'
-		'https://steamcdn-a.akamaihd.net/client/installer/steam.dmg'
+		
+		
 		
 		)
 
