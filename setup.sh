@@ -6,11 +6,6 @@ sudo spctl --master-disable
 
 echo "Installing Xcode Command Line tools"
 xcode-select --install
-echo  "I'm gonna sleep for a bit (20 seconds) to make sure you have the development tools! 💤"
-sleep 20.0
-
-#echo "Automagically agree to the Xcode Agreement. This might sell your soul to Tim Cook."
-#sudo xcodebuild -license
 
 echo "Get brew, because brew is life"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -25,28 +20,26 @@ brew install npm
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install cowsay
-brew install fortune
 brew install thefuck
-brew install rtv
-brew install htop
-brew install terminal-notifier
-
-npm install --global pure-prompt
-
 
 
 brew cask install sublime-text
-brew cask install iterm2
 
-#don't re-enable gatekeeper
 sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO 
 
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 
 defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock #remove dashboard, change to NO if you want it back
 
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
+
 killall Dock
 
+
+rm ~/.zshrc
+rm /usr/local/bin/sublime
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
 
 echo "🍻🍻🍻🍻🍻Finished! Enjoy! 🍻🍻🍻🍻🍻"
 sleep 3.0
