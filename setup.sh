@@ -1,11 +1,63 @@
 #!/bin/sh
 
-echo "Disable GateKeeper. I'm assuming that you know how to NOT download a virus"
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Colors
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
+
+read -p "Press ${BLUE}any${RESET} key to start the install process: "
+
+echo "${BLUE}Staring install process...${RESET}"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# System Changes
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo "${RED}Disabling${RESET} GateKeeper"
 sudo spctl --master-disable
+sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO 
 
-echo "Installing Xcode Command Line tools"
+echo "${RED}Disabling${RESET} dashboard"
+defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock 
+
+echo "${GREEN}Adding${RESET} blank space to dock"
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+
+echo "${BLUE}Setting${RESET} key repeat and key delay to be faster (${RED}reboot required${RESET})"
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
+
+echo "${BLUE}Configuring${RESET} dock to autohide"
+osascript <<EOD
+  tell application "System Events"
+    if (get autohide of dock preferences) is false then
+      tell dock preferences to set autohide to not autohide
+    end if
+  end tell
+EOD
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Development Tools
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+echo "${GREEN}Installing${RESET} Xcode Command Line tools"
 xcode-select --install
+
+
+
+
+
+
+open Personal.terminal
+defaults write com.apple.Terminal "Default Window Settings" -string 'Personal'
+defaults write com.apple.Terminal "Startup Window Settings" -string 'Personal'
+
+
 
 echo "Get brew, because brew is life"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -25,14 +77,10 @@ brew install thefuck
 
 brew cask install sublime-text
 
-sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO 
 
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 
-defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock #remove dashboard, change to NO if you want it back
 
-defaults write -g InitialKeyRepeat -int 15
-defaults write -g KeyRepeat -int 2
+
 
 killall Dock
 
@@ -42,6 +90,6 @@ rm /usr/local/bin/sublime
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
 
 echo "🍻🍻🍻🍻🍻Finished! Enjoy! 🍻🍻🍻🍻🍻"
-sleep 3.0
+
 	
 
