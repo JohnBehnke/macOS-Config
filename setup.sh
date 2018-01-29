@@ -44,50 +44,93 @@ EOD
 # Development Tools
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 echo "${GREEN}Installing${RESET} Xcode Command Line tools"
 xcode-select --install
 
+read -p "Press ${BLUE}any${RESET} key once the Xcode Command Line tools are done installing..."
+
+echo "${GREEN}Installing${RESET} oh-my-zsh"
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+echo "${GREEN}Installing${RESET} Homebrew"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 
 
+brew_packages=(
+	"git"
+	"thefuck"
+	"zsh-autosuggestions"
+	"zsh-syntax-highlighting"
+	"zsh-autosuggestions"
+	"node"
+	"mas"
+	"python3"
+)
 
+echo "${GREEN}Installing${RESET} Homebrew packages"
+
+for package in "${brew_packages[@]}"; do
+	brew install "$package"
+done
+
+brew_cask_applications=(
+	"sublime-text"
+	"1password"
+	"iina"
+	"cheatsheet"
+	"backblaze"
+	"istat-menus"
+	"bartender"
+	"tower"
+	"sketch"
+	"docker"
+)
+
+echo "${GREEN}Installing${RESET} Homebrew Cask Applications"
+
+for cask_package in "${brew_cask_applications[@]}"; do
+  brew cask install "$cask_package"
+done
+
+mas_applications=(
+	"924726344" # Delieveries
+	"497799835" #Xcode
+	"409201541" #Pages
+	"409203825" #Numbers
+	"409183694" #Keynote
+
+)
+
+for mas_app in "${mas_applications[@]}"; do
+  mas install "$mas_app"
+done
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Dotfiles
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+read -p "Press ${BLUE}any${RESET} key once you've setup iCloud Documents..."
 
 open Personal.terminal
 defaults write com.apple.Terminal "Default Window Settings" -string 'Personal'
 defaults write com.apple.Terminal "Startup Window Settings" -string 'Personal'
 
 
-
-echo "Get brew, because brew is life"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-echo "Get zsh and make it the default shell, because bash is for old people"
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-
-
-#install git because git is awesome
-brew install git
-brew install npm
-brew install zsh-autosuggestions
-brew install zsh-syntax-highlighting
-brew install cowsay
-brew install thefuck
-
-
-brew cask install sublime-text
-
-
-
-
-
-
 killall Dock
 
 
 rm ~/.zshrc
-rm /usr/local/bin/sublime
+
+ln -s /Users/john/Documents/Programming/Personal/dotfiles/zsh/.zshrc ~/.zshrc  
+ln -s /Users/john/Documents/Programming/Personal/dotfiles/git/gitconfig ~/.gitconfig  
+ln -s /Users/john/Documents/Programming/Personal/dotfiles/git/gitignore_global ~/.gitignore_global
+rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+ln -s ~/Documents/Programming/Personal/dotfiles/sublime/User ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
+
+
 
 echo "🍻🍻🍻🍻🍻Finished! Enjoy! 🍻🍻🍻🍻🍻"
 
