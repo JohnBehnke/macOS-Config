@@ -1,10 +1,15 @@
-# EasyDevTools
-A small script that downloads a bunch of useful development tools for OS X for when you get a new Mac or a use a fresh install. It uses bash to download the xcode command line tools, brew, valgrind, git, and then it creates a new folder on the Desktop that all of the other tools get downloaded to using cURL. Finally it opens up the App Store for those applications that can't be download directly from the web. 
+# macOS Config
 
-#How to use
-All you have to do is run easyDev.sh as with bash.
+A script I use when I need to setup a macOS machine
 
-`bash easyDev.sh`
+# Use
 
-Done. EZPZ
+## Locally
+
+Run `bash setup.sh`
+
+## Remotely
+
+Run `bash < (curl -sL <url>)`
+
 
