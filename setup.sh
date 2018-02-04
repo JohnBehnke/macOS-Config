@@ -120,14 +120,14 @@ done
 read -p "Press ${BLUE}any${RESET} key once you've setup iCloud Documents..."
 
 
-
+cd /Users/john/Documents/Programming/Personal/dotfiles/terminal
 open Personal.terminal
+
 defaults write com.apple.Terminal "Default Window Settings" -string 'Personal'
 defaults write com.apple.Terminal "Startup Window Settings" -string 'Personal'
 
-cd ~
 
-cd /Users/john/Documents/Programming/Personal/dotfiles/terminal
+cd ~
 
 rm ~/.zshrc
 
