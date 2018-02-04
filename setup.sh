@@ -55,6 +55,12 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 echo "\n${GREEN}Installing${RESET} Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+echo "\n${BLUE}Setting${RESET} Safari Development Menu"
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+echo "\n${BLUE}Setting${RESET} Full Path To Show in Finder"
+defaults write com.apple.finder ShowPathbar -bool true
+
 
 
 brew_packages=(
