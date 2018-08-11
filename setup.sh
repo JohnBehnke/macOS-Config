@@ -49,9 +49,6 @@ xcode-select --install
 
 read -p "Press ${BLUE}any${RESET} key once the Xcode Command Line tools are done installing..."
 
-echo "${GREEN}Installing${RESET} oh-my-zsh"
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-
 echo "${GREEN}Installing${RESET} Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -65,13 +62,10 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 brew_packages=(
 	"git"
-	"thefuck"
-	"zsh-autosuggestions"
-	"zsh-syntax-highlighting"
-	"zsh-autosuggestions"
 	"node"
 	"mas"
 	"python3"
+	"fish"
 )
 
 echo "${GREEN}Installing${RESET} Homebrew packages"
@@ -88,10 +82,14 @@ brew_cask_applications=(
 	"backblaze"
 	"istat-menus"
 	"bartender"
-	"tower"
 	"sketch"
 	"docker"
 )
+
+echo "${BLUE}Setting${RESET} Fish 🐠 to be the shell"
+
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
 
 echo "${GREEN}Installing${RESET} Homebrew Cask Applications"
 
